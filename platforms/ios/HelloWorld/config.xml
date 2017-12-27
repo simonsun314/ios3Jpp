@@ -22,6 +22,9 @@
     <feature name="Geolocation">
         <param name="ios-package" value="CDVLocation" />
     </feature>
+    <feature name="Diagnostic">
+        <param name="ios-package" value="Diagnostic" />
+    </feature>
     <name>HelloWorld</name>
     <description>
         A sample Apache Cordova application that responds to the deviceready event.
@@ -39,6 +42,9 @@
     <allow-intent href="geo:*" />
     <edit-config file="*-Info.plist" mode="merge" target="NSLocationWhenInUseUsageDescription">
         <string>need location access to find things nearby</string>
+    </edit-config>
+    <edit-config file="*-Info.plist" mode="merge" target="NFCReaderUsageDescription">
+        <string>need nfc access to find things nearby</string>
     </edit-config>
     <allow-intent href="itms:*" />
     <allow-intent href="itms-apps:*" />

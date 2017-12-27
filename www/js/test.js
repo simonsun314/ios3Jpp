@@ -14,7 +14,7 @@ var tag; //the nfc tag
                   '</div>'+
                 '</div>',
                 */
-
+/*hint window content and style*/
 var showhint = function(intxt){
   var modal = myApp.modal({
     title: '<font color=green style="font-weight:bold">3J防伪友情提醒：</font>',
@@ -36,7 +36,7 @@ var showhint = function(intxt){
 
 
 /*logFun is to set log file path*/
-          var logFunc = function(){
+var logFunc = function(){
 
 //  myApp.alert("log request");
 //get UUID
@@ -118,7 +118,7 @@ var countnfcreg = 0;
 var onGeoSuccess = function(position) {
   tag_lat = position.coords.latitude;
   tag_lon = position.coords.longitude;
-    /*
+    
         myApp.alert('Latitude: '          + position.coords.latitude          + '\n' +
               'Longitude: '         + position.coords.longitude         + '\n' +
               'Altitude: '          + position.coords.altitude          + '\n' +
@@ -127,7 +127,7 @@ var onGeoSuccess = function(position) {
               'Heading: '           + position.coords.heading           + '\n' +
               'Speed: '             + position.coords.speed             + '\n' +
               'Timestamp: '         + position.timestamp                + '\n');
-              */
+              
       //getPos();
       registerNFC();
     }
@@ -955,6 +955,7 @@ var logMyFunc = function(x){
 
     //window.logToFile.debug(x);
   }
+  myApp.alert(x);
 }
 
 
@@ -1152,30 +1153,45 @@ var registerNfcMime = function(){
 
 /*register tag nfc call back and return error when nfc close*/
 var registerNFC=function(){
- // myApp.alert("register NFC");
-
+ myApp.alert("register NFC");
+/*
  nfc.addTagDiscoveredListener(nfcCallbk,
         function () { // success callback
-           // myApp.alert("Waiting for  tag");
+            myApp.alert("Waiting for  tag");
            registerNfcMime();
          },
         function (error) { // error callback
-           // myApp.alert("NFC出错 " + JSON.stringify(error)+"请打开NFC");
+            myApp.alert("NFC出错 " + JSON.stringify(error)+"请打开NFC");
            logMyFunc("TagNFC出错 " + JSON.stringify(error)+"请打开NFC");
            registerNfcMime();
-           /*
-           setTimeout(function () {
+           
+          // setTimeout(function () {
               //myApp.closeModal();
-              registerNfcMime();
-            }, 2000);
-            */
+          //    registerNfcMime();
+          //  }, 2000);
+            
          });
+*/
+
+checkNfcAuthor(); 
+uidInHex = "b70438742e67732f545930694576385b";
+tmpurl = sha256_digest(uidInHex);
+    //start a request to thinfilm server with RESTFUL structure
+   // myApp.alert(tmpurl);
+    //get POS and local time
+    
+    getTime();
+
+    getPos2();
+
+/*mimic nfc call back*/
 
 
 }
 
 
 var regNFCinMid = function(){
+  /*
  nfc.addTagDiscoveredListener(nfcCallbk,
         function () { // success callback
            // myApp.alert("Waiting for  tag");
@@ -1186,4 +1202,5 @@ var regNFCinMid = function(){
            logMyFunc("TagNFC出错 " + JSON.stringify(error)+"请打开NFC");
 
          });
+         */
 }

@@ -12,6 +12,9 @@
     },
     "cordova-plugin-geolocation": {
       "PACKAGE_NAME": "com.simon.app"
+    },
+    "cordova.plugins.diagnostic": {
+      "PACKAGE_NAME": "com.simon.app"
     }
   },
   "dependent_plugins": {}
